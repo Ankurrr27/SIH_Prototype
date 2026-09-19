@@ -17,7 +17,17 @@ ehthumbs.db
 Thumbs.db
 [Dd]esktop.ini
 
-# Environment variable files (secrets)
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# Next.js build output
+.next/
+out/
+build/
+
+# Environment files
 .env
 .env.local
 .env.development.local
@@ -66,7 +76,18 @@ coverage/
 !.vscode/extensions.json
 .idea/
 *.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Certificates and generated files
+*.pem
+.DS_Store
+*.pem
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+>>>>>>> origin/master
