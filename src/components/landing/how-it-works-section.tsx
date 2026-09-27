@@ -39,18 +39,12 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section id="process" className="border-y border-slate-200 bg-white py-16 text-slate-950">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="max-w-2xl space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] dark:text-blue-400">
-            Simplified Timeline
-          </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+    <section id="process" className="border-y border-slate-200 bg-white py-10 text-slate-950 scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="max-w-2xl">
+          <h2 className="text-2xl font-extrabold tracking-tight text-slate-950 sm:text-3xl">
             From Application to Certificate in Simple Steps
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base">
-            Clear, transparent workflow ensuring regulatory compliance without unnecessary delays.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">

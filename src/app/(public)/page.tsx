@@ -43,8 +43,7 @@ export default function LandingPage() {
         {/* 7. Stakeholder Roles Section */}
         <RolesSection />
 
-        {/* 8. Certificate Verification Search Bar CTA */}
-        <VerificationCtaSection />
+        {/* 8. Certificate Verification Search Bar CTA - Removed */}
 
         {/* 9. Security & Transparency Section */}
         <SecuritySection />

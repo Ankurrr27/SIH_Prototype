@@ -7,8 +7,8 @@ import { ShieldCheck, ArrowRight, Search, QrCode } from 'lucide-react';
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white pt-12 pb-24 text-slate-900 lg:pt-16 lg:pb-32">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-white pt-12 pb-24 text-slate-900 lg:pt-24 h-screen flex items-center lg:pb-32">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Hero Content */}
           <motion.div
@@ -18,10 +18,7 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
           >
             {/* Platform Badge */}
-            <div className="inline-flex items-center space-x-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold text-blue-700">
-              <ShieldCheck className="h-4 w-4 text-blue-600" />
-              <span>Digital Legal Metrology Platform</span>
-            </div>
+           
 
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 leading-tight">
@@ -31,16 +28,13 @@ export function HeroSection() {
               </span>
             </h1>
 
-            {/* Supporting Description */}
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Streamlining commercial weighing and measuring instrument registration, field inspection scheduling, GATC lab calibration, and instant QR-enabled digital certificate issuance.
-            </p>
+            {/* Secondary Text Removed for compact view */}
 
             {/* Primary & Secondary CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
                 href="/register"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-[#2563EB] px-7 py-3.5 text-base font-bold text-slate-950 shadow-lg shadow-blue-500/25 hover:bg-blue-400 transition hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-[#2563EB] px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-blue-500/25 hover:bg-blue-400 transition hover:scale-105"
               >
                 <span>Get Started</span>
                 <ArrowRight className="h-5 w-5" />
@@ -57,7 +51,7 @@ export function HeroSection() {
             {/* Small Trust Text */}
             <div className="pt-4 flex items-center justify-center lg:justify-start space-x-2 text-xs font-semibold text-slate-400">
               <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
-              <span>Paperless workflows â€¢ Secure access â€¢ QR-enabled certificates</span>
+              <span>Paperless workflows &bull; Secure access &bull; QR-enabled certificates</span>
             </div>
           </motion.div>
 

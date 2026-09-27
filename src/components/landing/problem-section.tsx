@@ -42,19 +42,12 @@ export function ProblemSection() {
   ];
 
   return (
-    <section id="problem" className="py-20 bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center space-y-3 max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-1.5 rounded-full bg-rose-100 px-3.5 py-1 text-xs font-bold text-rose-800 dark:bg-rose-950/60 dark:text-rose-300">
-            <XCircle className="h-3.5 w-3.5" />
-            <span>Legacy Challenges</span>
-          </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+    <section id="problem" className="py-20 bg-black text-white scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
             Traditional Verification Processes Can Be Complex
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base">
-            Paper-based metrology compliance creates bottlenecks, delays instrument deployment, and increases administrative overhead for businesses and enforcement agencies.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -74,13 +67,10 @@ export function ProblemSection() {
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-bold text-white">{prob.title}</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    {prob.description}
-                  </p>
                   <ul className="space-y-2 pt-2 border-t border-slate-700">
                     {prob.points.map((pt) => (
                       <li key={pt} className="flex items-start space-x-2 text-xs text-slate-300">
-                        <span className="text-rose-500 font-bold shrink-0 mt-0.5">â€¢</span>
+                        <span className="text-rose-500 font-bold shrink-0 mt-0.5">&bull;</span>
                         <span>{pt}</span>
                       </li>
                     ))}

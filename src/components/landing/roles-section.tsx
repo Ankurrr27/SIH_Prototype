@@ -74,64 +74,55 @@ export function RolesSection() {
   ];
 
   return (
-    <section id="roles" className="py-16 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="text-center space-y-2 max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] dark:text-blue-400">
-            Multi-Stakeholder Governance
-          </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+    <section id="roles" className="py-10 bg-white scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
             Designed for Every Stakeholder
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Role-specific interfaces engineered to meet exact operational requirements and security boundaries.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {roles.map((item, idx) => {
             const Icon = item.icon;
             return (
               <motion.div
                 key={item.role}
-                className={`rounded-xl border ${item.accent} p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between`}
+                className={`rounded-xl border ${item.accent} p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold ${item.badgeStyle}`}>
+                    <span className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-bold ${item.badgeStyle}`}>
                       {item.badge}
                     </span>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
-                      <Icon className="h-6 w-6" />
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                      <Icon className="h-4 w-4" />
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-slate-900">{item.role}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">{item.role}</h3>
 
-                  <ul className="space-y-2 pt-4 border-t border-slate-200/80 dark:border-slate-800">
+                  <ul className="space-y-1.5 pt-3 border-t border-slate-200/80 dark:border-slate-800">
                     {item.features.map((feat) => (
-                      <li key={feat} className="flex items-start space-x-2 text-xs font-medium text-slate-700 dark:text-slate-700">
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue-600" aria-hidden="true" />
-                        <span>{feat}</span>
+                      <li key={feat} className="flex items-start space-x-1.5 text-[11px] font-medium text-slate-700 dark:text-slate-700">
+                        <Check className="mt-0.5 h-3 w-3 shrink-0 text-blue-600" aria-hidden="true" />
+                        <span className="leading-snug">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-200/80 dark:border-slate-800">
+                <div className="pt-3 mt-3 border-t border-slate-200/80 dark:border-slate-800">
                   <Link
                     href={item.link}
-                    className="inline-flex items-center justify-between w-full rounded-xl bg-[#1D4ED8] px-4 py-3 text-xs font-bold text-white shadow hover:bg-[#2563EB] transition"
+                    className="inline-flex items-center justify-between w-full rounded-lg bg-[#1D4ED8] px-3 py-2 text-[11px] font-bold text-white shadow hover:bg-[#2563EB] transition"
                   >
                     <span>Access {item.cta}</span>
-                    <ArrowRight className="h-4 w-4 text-[#2563EB]" />
+                    <ArrowRight className="h-3.5 w-3.5 text-white/80" />
                   </Link>
                 </div>
               </motion.div>

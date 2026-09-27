@@ -51,23 +51,16 @@ export function SolutionSection() {
   ];
 
   return (
-    <section className="py-24 bg-white text-slate-900">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-2 rounded-full border border-blue-400/40 bg-blue-50 px-4 py-1 text-xs font-bold text-blue-700">
-            <CheckCircle2 className="h-4 w-4 text-[#2563EB]" />
-            <span>End-to-End Digital Solution</span>
-          </div>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-slate-950">
+    <section className="py-10 bg-white text-slate-900">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl font-extrabold tracking-tight sm:text-4xl text-slate-950">
             One Platform. Complete Verification Lifecycle.
           </h2>
-          <p className="text-slate-700 text-base sm:text-lg">
-            A unified digital governance framework connecting applicants, field officers, GATC testing centers, and the public.
-          </p>
         </div>
 
         {/* Connected Step Workflow Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {workflowSteps.map((item, idx) => {
             const Icon = item.icon;
             return (

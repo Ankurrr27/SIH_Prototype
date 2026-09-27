@@ -46,21 +46,15 @@ export function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
-        <div className="text-center space-y-3 max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] dark:text-blue-400">
-            Platform Modules
-          </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+    <section id="services" className="py-10 bg-white scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
             Everything You Need for Digital Verification
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Modular tools built specifically for Legal Metrology compliance, lab testing workflows, and public verification.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((svc, idx) => {
             const Icon = svc.icon;
             return (

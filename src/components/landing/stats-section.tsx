@@ -37,7 +37,7 @@ export function StatsSection() {
   ];
 
   return (
-    <section className="relative -mt-12 z-20 bg-slate-950 py-12 text-white">
+    <section className="relative mt-19 z-20 bg-black py-14 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {stats.map((stat, idx) => {
@@ -61,9 +61,6 @@ export function StatsSection() {
               </h3>
               <p className="text-lg font-extrabold text-slate-900 mt-1">
                 {stat.value}
-              </p>
-              <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                {stat.description}
               </p>
             </motion.div>
           );
