@@ -14,7 +14,7 @@ export function FinalCtaSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-8">
-        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-5xl text-white">
           Start Your Digital Verification Journey
         </h2>
         <p className="mx-auto max-w-2xl text-lg text-slate-400 leading-relaxed">

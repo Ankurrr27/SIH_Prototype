@@ -43,10 +43,7 @@ export function LandingFooter() {
                   8878856888
                 </a>
               </div>
-              <div className="flex items-center space-x-3 text-slate-700 dark:text-slate-300">
-                <MapPin className="h-4 w-4 text-blue-600 dark:text-blue-500" />
-                <span>Department of Legal Metrology, New Delhi</span>
-              </div>
+
             </div>
           </div>
 

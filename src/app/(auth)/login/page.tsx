@@ -107,17 +107,16 @@ export default function LoginPage() {
           <div className="flex-1 border-t border-slate-200 dark:border-slate-800" />
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-3">
+        <div className="mt-4 grid grid-cols-4 gap-2">
           {demoAccounts.map(({ label, email: demoEmail }) => (
             <button
               key={demoEmail}
               type="button"
               onClick={() => handleDemoLogin(demoEmail)}
               disabled={isLoading}
-              className="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0A0A0A] px-3 py-2 text-left hover:border-blue-500 dark:hover:border-blue-500 hover:bg-white dark:hover:bg-black transition-colors disabled:opacity-50"
+              className="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0A0A0A] px-3 py-2 text-center hover:border-blue-500 dark:hover:border-blue-500 hover:bg-white dark:hover:bg-black transition-colors disabled:opacity-50"
             >
               <span className="block text-sm font-semibold text-slate-700 dark:text-slate-300">{label}</span>
-              <span className="block text-[11px] text-slate-500 dark:text-slate-500 truncate">{demoEmail}</span>
             </button>
           ))}
         </div>
