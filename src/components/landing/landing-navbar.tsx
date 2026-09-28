@@ -46,7 +46,7 @@ export function LandingNavbar() {
         <div className="hidden md:flex items-center space-x-2">
           <Link
             href="/login"
-            className="rounded-lg border border-slate-200 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 hover:bg-slate-50 transition"
+            className="rounded-md border border-slate-200 px-4 py-1.5 text-[13px] font-medium text-slate-700 hover:bg-slate-50 transition"
           >
             Login
           </Link>

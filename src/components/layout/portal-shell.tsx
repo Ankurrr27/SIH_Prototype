@@ -16,11 +16,11 @@ export function PortalShell({ role, title, children }: PortalShellProps) {
   const { sidebarOpen } = useUIStore();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#050505]">
       <Sidebar role={role} />
-      <div className={`flex flex-col transition-all duration-300 ${sidebarOpen ? 'pl-60' : 'pl-16'}`}>
+      <div className={`flex flex-col transition-all duration-300 ${sidebarOpen ? 'pl-56' : 'pl-16'}`}>
         <TopHeader title={title} />
-        <main className="flex-1 p-4 lg:p-5">{children}</main>
+        <main className="flex-1 p-6">{children}</main>
       </div>
     </div>
   );

@@ -6,17 +6,14 @@ import { HeroSection } from '@/components/landing/hero-section';
 import { StatsSection } from '@/components/landing/stats-section';
 import { ProblemSection } from '@/components/landing/problem-section';
 import { SolutionSection } from '@/components/landing/solution-section';
-import { ServicesSection } from '@/components/landing/services-section';
-import { HowItWorksSection } from '@/components/landing/how-it-works-section';
 import { RolesSection } from '@/components/landing/roles-section';
-import { VerificationCtaSection } from '@/components/landing/verification-cta-section';
 import { SecuritySection } from '@/components/landing/security-section';
 import { FinalCtaSection } from '@/components/landing/final-cta-section';
 import { LandingFooter } from '@/components/landing/landing-footer';
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-slate-900 dark:bg-white dark:text-slate-100 scroll-smooth">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 dark:bg-[#050505] dark:text-slate-100 scroll-smooth">
       {/* Sticky Main Navigation */}
       <LandingNavbar />
 
@@ -34,21 +31,13 @@ export default function LandingPage() {
         {/* 4. Connected Solution Workflow */}
         <SolutionSection />
 
-        {/* 5. Core Services Section */}
-        <ServicesSection />
-
-        {/* 6. Step-by-step How It Works Timeline */}
-        <HowItWorksSection />
-
-        {/* 7. Stakeholder Roles Section */}
+        {/* 5. Stakeholder Roles Section */}
         <RolesSection />
 
-        {/* 8. Certificate Verification Search Bar CTA - Removed */}
-
-        {/* 9. Security & Transparency Section */}
+        {/* 6. Security & Transparency Section */}
         <SecuritySection />
 
-        {/* 10. Final Call to Action Section */}
+        {/* 7. Final Call to Action Section */}
         <FinalCtaSection />
       </main>
 

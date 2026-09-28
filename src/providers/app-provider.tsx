@@ -10,7 +10,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <QueryProvider>
         {children}
-        <Toaster position="top-right" richColors closeButton />
+        <Toaster position="bottom-right" richColors closeButton />
       </QueryProvider>
     </ThemeProvider>
   );

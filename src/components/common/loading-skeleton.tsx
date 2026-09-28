@@ -26,18 +26,18 @@ export function LoadingSkeleton({ className, count = 1 }: LoadingSkeletonProps) 
 
 export function TableSkeleton({ rows = 5 }: { rows?: number }) {
   return (
-    <div className="w-full space-y-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-white">
-      <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-        <LoadingSkeleton className="h-6 w-48" />
-        <LoadingSkeleton className="h-8 w-24 rounded-lg" />
+    <div className="w-full space-y-3 rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800/60 dark:bg-[#0A0A0A]">
+      <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800/60">
+        <LoadingSkeleton className="h-5 w-32" />
+        <LoadingSkeleton className="h-7 w-20 rounded-md" />
       </div>
       {Array.from({ length: rows }).map((_, i) => (
-        <div key={i} className="flex items-center space-x-4 py-2">
+        <div key={i} className="flex items-center space-x-4 py-2.5 border-b border-slate-50 dark:border-slate-800/30 last:border-0">
           <LoadingSkeleton className="h-4 w-1/4" />
           <LoadingSkeleton className="h-4 w-1/4" />
           <LoadingSkeleton className="h-4 w-1/6" />
           <LoadingSkeleton className="h-4 w-1/6" />
-          <LoadingSkeleton className="h-6 w-16 rounded-full" />
+          <LoadingSkeleton className="h-5 w-16 rounded-full" />
         </div>
       ))}
     </div>

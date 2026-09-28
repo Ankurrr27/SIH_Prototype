@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { User, UserRole } from '@/types/user';
 import Cookies from 'js-cookie';
 
@@ -11,26 +12,35 @@ interface AuthState {
   logout: () => void;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
-  isAuthenticated: !!Cookies.get('accessToken'),
-  isLoading: false,
+export const useAuthStore = create<AuthState>()(
+  persist(
+    (set) => ({
+      user: null,
+      isAuthenticated: !!Cookies.get('accessToken'),
+      isLoading: false,
 
-  setUser: (user) =>
-    set({
-      user,
-      isAuthenticated: !!user,
+      setUser: (user) =>
+        set({
+          user,
+          isAuthenticated: !!user,
+        }),
+
+      setTokens: (accessToken, refreshToken) => {
+        Cookies.set('accessToken', accessToken, { expires: 1 });
+        Cookies.set('refreshToken', refreshToken, { expires: 7 });
+        set({ isAuthenticated: true });
+      },
+
+      logout: () => {
+        Cookies.remove('accessToken');
+        Cookies.remove('refreshToken');
+        set({ user: null, isAuthenticated: false });
+      },
     }),
-
-  setTokens: (accessToken, refreshToken) => {
-    Cookies.set('accessToken', accessToken, { expires: 1 });
-    Cookies.set('refreshToken', refreshToken, { expires: 7 });
-    set({ isAuthenticated: true });
-  },
-
-  logout: () => {
-    Cookies.remove('accessToken');
-    Cookies.remove('refreshToken');
-    set({ user: null, isAuthenticated: false });
-  },
-}));
+    {
+      name: 'auth-storage', // name of the item in the storage (must be unique)
+      storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+      partialize: (state) => ({ user: state.user, isAuthenticated: state.isAuthenticated }), // Only save user and auth status
+    }
+  )
+);

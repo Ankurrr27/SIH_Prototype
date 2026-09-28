@@ -1,7 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { sendSuccess } from '../utils/response';
 import { prisma } from '../config/database';
-import { redis } from '../config/redis';
 import authRouter from '../modules/auth/auth.routes';
 import usersRouter from '../modules/users/users.routes';
 import organizationsRouter from '../modules/organizations/organizations.routes';
@@ -41,23 +40,15 @@ router.use('/api/mobile', mobileSyncRouter);
   });
 });
 
-// Readiness check (checks database and redis connectivity)
+// Readiness check (checks database)
 router.get('/ready', async (req: Request, res: Response) => {
   let dbStatus = 'DOWN';
-  let redisStatus = 'DOWN';
 
   try {
     await prisma.$queryRaw`SELECT 1`;
     dbStatus = 'UP';
   } catch (err: any) {
     dbStatus = `DOWN (${err.message})`;
-  }
-
-  try {
-    const ping = await redis.ping();
-    if (ping === 'PONG') redisStatus = 'UP';
-  } catch (err: any) {
-    redisStatus = `DOWN (${err.message})`;
   }
 
   const isReady = dbStatus === 'UP';
@@ -67,7 +58,6 @@ router.get('/ready', async (req: Request, res: Response) => {
     message: isReady ? 'System is ready to handle requests' : 'System degraded or unavailable',
     services: {
       database: dbStatus,
-      redis: redisStatus,
     },
     timestamp: new Date().toISOString(),
   });

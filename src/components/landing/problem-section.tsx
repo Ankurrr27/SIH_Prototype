@@ -15,7 +15,6 @@ export function ProblemSection() {
         'In-person office visits for submission & fee receipts',
         'Slower communication between applicant and officer',
       ],
-      accent: 'border-rose-200 bg-rose-50/50 text-rose-700 dark:border-rose-900/40 dark:bg-rose-950/20 dark:text-rose-400',
     },
     {
       icon: EyeOff,
@@ -26,7 +25,6 @@ export function ProblemSection() {
         'No centralized milestone tracking dashboard',
         'Unclear rejection or resubmission feedback',
       ],
-      accent: 'border-blue-200 bg-blue-50/50 text-blue-700 dark:border-blue-900/40 dark:bg-blue-950/20 dark:text-blue-400',
     },
     {
       icon: AlertOctagon,
@@ -37,17 +35,19 @@ export function ProblemSection() {
         'Laborious manual register lookups for public verification',
         'Difficult re-issuance upon loss of paper document',
       ],
-      accent: 'border-orange-200 bg-orange-50/50 text-orange-700 dark:border-orange-900/40 dark:bg-orange-950/20 dark:text-orange-400',
     },
   ];
 
   return (
-    <section id="problem" className="py-20 bg-black text-white scroll-mt-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-            Traditional Verification Processes Can Be Complex
+    <section id="problem" className="py-24 bg-white dark:bg-[#050505] scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            The Challenges of Traditional Verification
           </h2>
+          <p className="mt-4 text-lg text-slate-500 dark:text-slate-400">
+            Legacy systems rely heavily on manual processes, leading to bottlenecks, lack of transparency, and security risks.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -56,22 +56,28 @@ export function ProblemSection() {
             return (
               <motion.div
                 key={prob.title}
-                className="rounded-xl border border-slate-800 bg-slate-900 p-7 shadow-sm hover:border-blue-500/50 hover:shadow-lg transition flex flex-col justify-between"
+                className="relative rounded-2xl border border-slate-200 dark:border-slate-800/60 bg-slate-50 dark:bg-[#0A0A0A] p-8 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div className="space-y-4">
-                  <div className={`inline-flex items-center justify-center rounded-lg p-3 ${prob.accent}`}>
+                <div className="space-y-6">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{prob.title}</h3>
-                  <ul className="space-y-2 pt-2 border-t border-slate-700">
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">{prob.title}</h3>
+                    <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {prob.description}
+                    </p>
+                  </div>
+                  
+                  <ul className="space-y-3 pt-6 border-t border-slate-200 dark:border-slate-800/60">
                     {prob.points.map((pt) => (
-                      <li key={pt} className="flex items-start space-x-2 text-xs text-slate-300">
-                        <span className="text-rose-500 font-bold shrink-0 mt-0.5">&bull;</span>
-                        <span>{pt}</span>
+                      <li key={pt} className="flex items-start text-sm text-slate-600 dark:text-slate-400">
+                        <XCircle className="mr-3 mt-0.5 h-4 w-4 shrink-0 text-slate-400 dark:text-slate-500" aria-hidden="true" />
+                        <span className="leading-snug">{pt}</span>
                       </li>
                     ))}
                   </ul>

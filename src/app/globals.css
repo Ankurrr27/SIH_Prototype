@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@variant dark (&:where(.dark, .dark *));
 @layer base {
   :root {
     --background: 0 0% 100%; /* #FFFFFF */
@@ -34,31 +34,31 @@
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 13%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 13%;
-    --popover-foreground: 210 40% 98%;
+    --background: 0 0% 2%; /* #050505 */
+    --foreground: 0 0% 98%;
+    --card: 0 0% 4%; /* #0A0A0A */
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
     
-    --primary: 217 91% 60%;
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 220 73% 30%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
     
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
     
-    --accent: 217 33% 20%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 98%;
     
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
     
-    --border: 217 33% 20%;
-    --input: 217 33% 20%;
-    --ring: 224.3 76.3% 48%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 221 83% 53%;
   }
 }
 
@@ -66,4 +66,14 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-sans), sans-serif;
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -20,8 +20,7 @@ export function RolesSection() {
       ],
       cta: 'Applicant Portal',
       link: '/login',
-      accent: 'border-blue-200 bg-blue-50/30 dark:border-blue-900/40 dark:bg-blue-950/20',
-      badgeStyle: 'bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300',
+      accentColor: 'blue',
     },
     {
       role: 'Legal Metrology Officers (LMO)',
@@ -36,11 +35,10 @@ export function RolesSection() {
       ],
       cta: 'Inspector Portal',
       link: '/login',
-      accent: 'border-blue-200 bg-blue-50/30 dark:border-blue-900/40 dark:bg-blue-950/20',
-      badgeStyle: 'bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300',
+      accentColor: 'indigo',
     },
     {
-      role: 'Government Approved Test Centres (GATC)',
+      role: 'Government Approved Test Centres',
       badge: 'Authorized Calibration Labs',
       icon: TestTube,
       desc: 'Dedicated laboratory interface for accredited GATC testing centers.',
@@ -52,8 +50,7 @@ export function RolesSection() {
       ],
       cta: 'GATC Lab Portal',
       link: '/login',
-      accent: 'border-indigo-200 bg-indigo-50/30 dark:border-indigo-900/40 dark:bg-indigo-950/20',
-      badgeStyle: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/60 dark:text-indigo-300',
+      accentColor: 'violet',
     },
     {
       role: 'Department Administrators',
@@ -68,61 +65,69 @@ export function RolesSection() {
       ],
       cta: 'Admin Portal',
       link: '/login',
-      accent: 'border-emerald-200 bg-emerald-50/30 dark:border-emerald-900/40 dark:bg-emerald-950/20',
-      badgeStyle: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300',
+      accentColor: 'emerald',
     },
   ];
 
   return (
-    <section id="roles" className="py-10 bg-white scroll-mt-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+    <section id="roles" className="py-20 bg-slate-50 scroll-mt-20 border-t border-slate-200">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
             Designed for Every Stakeholder
           </h2>
+          <p className="mt-4 text-slate-500 text-lg">
+            Dedicated portals with specialized tools built specifically for your role in the legal metrology ecosystem.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {roles.map((item, idx) => {
             const Icon = item.icon;
             return (
               <motion.div
                 key={item.role}
-                className={`rounded-xl border ${item.accent} p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between`}
+                className="group relative flex flex-col justify-between rounded-2xl bg-white p-6 shadow-sm border border-slate-200 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
-                <div className="space-y-3">
+                {/* Subtle top color bar */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-${item.accentColor}-500/80 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
+
+                <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-bold ${item.badgeStyle}`}>
+                    <span className={`inline-flex rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600`}>
                       {item.badge}
                     </span>
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
-                      <Icon className="h-4 w-4" />
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-slate-500 group-hover:bg-${item.accentColor}-50 group-hover:text-${item.accentColor}-600 transition-colors`}>
+                      <Icon className="h-5 w-5" />
                     </div>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">{item.role}</h3>
+                  <h3 className="text-lg font-bold text-slate-900 leading-snug">{item.role}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
 
-                  <ul className="space-y-1.5 pt-3 border-t border-slate-200/80 dark:border-slate-800">
+                  <ul className="space-y-2.5 pt-4">
                     {item.features.map((feat) => (
-                      <li key={feat} className="flex items-start space-x-1.5 text-[11px] font-medium text-slate-700 dark:text-slate-700">
-                        <Check className="mt-0.5 h-3 w-3 shrink-0 text-blue-600" aria-hidden="true" />
+                      <li key={feat} className="flex items-start text-[13px] text-slate-700">
+                        <Check className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-emerald-500" aria-hidden="true" />
                         <span className="leading-snug">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-3 mt-3 border-t border-slate-200/80 dark:border-slate-800">
+                <div className="pt-6 mt-6">
                   <Link
                     href={item.link}
-                    className="inline-flex items-center justify-between w-full rounded-lg bg-[#1D4ED8] px-3 py-2 text-[11px] font-bold text-white shadow hover:bg-[#2563EB] transition"
+                    className="group/btn relative inline-flex items-center justify-center w-full rounded-xl bg-white border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-900 hover:border-blue-500 hover:text-blue-600 transition-colors overflow-hidden"
                   >
-                    <span>Access {item.cta}</span>
-                    <ArrowRight className="h-3.5 w-3.5 text-white/80" />
+                    <span className="relative z-10 flex items-center justify-between w-full">
+                      <span>Access {item.cta}</span>
+                      <ArrowRight className="h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
+                    </span>
                   </Link>
                 </div>
               </motion.div>

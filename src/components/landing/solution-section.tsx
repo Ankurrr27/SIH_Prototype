@@ -51,45 +51,64 @@ export function SolutionSection() {
   ];
 
   return (
-    <section className="py-10 bg-white text-slate-900">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl font-extrabold tracking-tight sm:text-4xl text-slate-950">
-            One Platform. Complete Verification Lifecycle.
+    <section className="py-24 bg-slate-50 dark:bg-[#050505] border-t border-slate-200 dark:border-slate-800">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
+            One Platform. Complete Lifecycle.
           </h2>
+          <p className="mt-4 text-lg text-slate-500 dark:text-slate-400">
+            A seamless, end-to-end digital journey from initial instrument registration to final QR-based public verification.
+          </p>
         </div>
 
-        {/* Connected Step Workflow Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {workflowSteps.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.step}
-                className="relative rounded-xl border border-slate-200 bg-white p-6 hover:border-blue-400/60 transition duration-300 flex flex-col justify-between group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-extrabold text-[#2563EB] font-mono">{item.step}</span>
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-[#2563EB] group-hover:text-white transition-colors">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-950 mb-2">{item.title}</h3>
-                  <p className="text-xs text-slate-700 leading-relaxed">{item.desc}</p>
-                </div>
+        {/* Horizontal Timeline Container */}
+        <div className="relative w-full overflow-hidden">
+          {/* Fading edges for scroll indication */}
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-slate-50 dark:from-[#050505] to-transparent md:w-24" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-slate-50 dark:from-[#050505] to-transparent md:w-24" />
 
-                <div className="mt-6 pt-4 border-t border-slate-300 flex items-center justify-between text-[11px] font-semibold text-slate-700">
-                  <span>Stage {idx + 1} of 7</span>
-                  <span className="text-blue-600">Automated</span>
-                </div>
-              </motion.div>
-            );
-          })}
+          <div className="overflow-x-auto pb-12 pt-4 hide-scrollbar snap-x snap-mandatory flex">
+            <div className="relative flex px-8 md:px-24 min-w-max">
+              {/* Connecting Horizontal Line */}
+              <div className="absolute top-[28px] left-8 right-8 h-px bg-slate-200 dark:bg-slate-800 md:left-24 md:right-24" />
+
+              {workflowSteps.map((item, idx) => {
+                const Icon = item.icon;
+
+                return (
+                  <motion.div
+                    key={item.step}
+                    className="relative flex flex-col items-center w-[260px] sm:w-[300px] shrink-0 snap-center px-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  >
+                    {/* Node / Icon on the line */}
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-white dark:bg-[#0A0A0A] border border-slate-200 dark:border-slate-800/60 shadow-sm text-blue-600 dark:text-blue-500 group-hover:scale-110 transition-transform">
+                      <Icon className="h-6 w-6" />
+                    </div>
+
+                    {/* Step Number Badge */}
+                    <div className="mt-6 mb-3">
+                      <span className="inline-flex items-center rounded-full bg-blue-50 dark:bg-blue-900/30 px-2.5 py-0.5 text-xs font-bold text-blue-600 dark:text-blue-400">
+                        STEP {item.step}
+                      </span>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="text-center">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
